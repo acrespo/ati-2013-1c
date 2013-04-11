@@ -15,11 +15,11 @@ public class FilterMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
 
 	public FilterMenu(){
-		super("Filtros");
+		super("Filters");
 		this.setEnabled(false);
     
-    JMenuItem media = new JMenuItem("Suavizado");
-    media.addActionListener(new ActionListener() {
+    JMenuItem mediaFilter = new JMenuItem("Smoothing - Media Filter");
+    mediaFilter.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Panel panel = (((Window) getTopLevelAncestor()).getPanel());
@@ -28,8 +28,8 @@ public class FilterMenu extends JMenu {
 		}
 	});
     
-    JMenuItem bordes = new JMenuItem("Realce de Bordes");
-    bordes.addActionListener(new ActionListener() {
+    JMenuItem edgeEnhancement = new JMenuItem("Edge enhancement");
+    edgeEnhancement.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Panel panel = (((Window) getTopLevelAncestor()).getPanel());
@@ -38,8 +38,8 @@ public class FilterMenu extends JMenu {
 		}
 	});
     
-    JMenuItem medianMenuItem = new JMenuItem("Filtro de la Mediana");
-    medianMenuItem.addActionListener(new ActionListener() {
+    JMenuItem medianFilter = new JMenuItem("Smoothing - Median Filter");
+    medianFilter.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Panel panel = (((Window) getTopLevelAncestor()).getPanel());
@@ -48,9 +48,10 @@ public class FilterMenu extends JMenu {
 		}
 	});
     
-    this.add(media);
-    this.add(bordes);
-    this.add(medianMenuItem);    
+    this.add(mediaFilter);
+    this.add(medianFilter);   
+    this.add(edgeEnhancement);
+
 	}
 
 

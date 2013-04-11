@@ -32,7 +32,7 @@ public class CropImageDialog extends JDialog {
 
 	public CropImageDialog(final Panel panel){
 
-	setTitle("Recortar Imagen");
+	setTitle("Cut image");
 	setBounds(1, 1, 250, 170);
 	Toolkit toolkit = getToolkit();
 	Dimension size = toolkit.getScreenSize();
@@ -42,11 +42,11 @@ public class CropImageDialog extends JDialog {
 	setLayout(null);
 
 	JPanel pan1 = new JPanel();
-	pan1.setBorder(BorderFactory.createTitledBorder("Coordenadas esquina superior izquierda"));
+	pan1.setBorder(BorderFactory.createTitledBorder("Upper-left corner coordinates"));
 	pan1.setBounds(0, 0, 250, 50);
 	
 	JPanel pan2 = new JPanel();
-	pan2.setBorder(BorderFactory.createTitledBorder("Coordenadas esquina inferior derecha"));
+	pan2.setBorder(BorderFactory.createTitledBorder("Bottom-right corner coordinates"));
 	pan2.setBounds(0, 50, 250, 50);
 
 	JLabel coordXLabel1 = new JLabel("X = ");
@@ -66,7 +66,7 @@ public class CropImageDialog extends JDialog {
 	coordY2.setColumns(3);
 
 	
-	JButton okButton = new JButton("OK");
+	JButton okButton = new JButton("Ok");
 	okButton.setSize(250, 40);
 	okButton.setBounds(0, 100, 250, 40);
 	okButton.addActionListener(new ActionListener(){
@@ -85,7 +85,7 @@ public class CropImageDialog extends JDialog {
 				y2 = Integer.valueOf(coordY2.getText());
 				
 			} catch(NumberFormatException ex){
-				new MessageFrame("Los datos ingresados son invalidos");
+				new MessageFrame("Values entered are not valid");
 				return;
 			}
 			
@@ -93,7 +93,7 @@ public class CropImageDialog extends JDialog {
 			try {
 				newImage = panel.getImage().cropImage(x1, y1, x2, y2);
 			} catch (InvalidImageException e2) {
-				new MessageFrame("Los datos ingresados son invalidos, las coordenadas deben estar dentro de la imagen");
+				new MessageFrame("Values entered are not valid, coordinates must be inside the image");
 			}
 			
 			if(newImage != null){
@@ -106,14 +106,14 @@ public class CropImageDialog extends JDialog {
 	    		try {
 					ImageSaver.saveImage(arch, newImage);
 				} catch (ImageWriteException e1) {
-					new MessageFrame("No se pudo guardar el archivo");
+					new MessageFrame("Could not load file");
 				} catch (IOException e1) {
-					new MessageFrame("No se pudo guardar el archivo");
+					new MessageFrame("Could not load file");
 				}
 				dispose();
 				
 			} else {
-				new MessageFrame("Los datos ingresados son invalidos");
+				new MessageFrame("Values entered are not valid");
 			}
 			
 		}

@@ -1,14 +1,14 @@
-package gui.toolsMenu;
+package gui.noiseMenu;
 
 import gui.Panel;
 
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -19,26 +19,20 @@ import javax.swing.event.ChangeListener;
 
 import model.Image;
 
-public class ThresholdDialog extends JDialog implements ChangeListener {
-	
+public class GaussianNoiseSlider extends JDialog implements ChangeListener {
+
 	private static final long serialVersionUID = 1L;
 	private final Panel panel;
+
+	public GaussianNoiseSlider(final Panel panel){
 	
-	public ThresholdDialog(final Panel panel){
-		
 		this.panel = panel;
-		setTitle("Threshold");
-		setBounds(1, 1, 250, 170);
-		Toolkit toolkit = getToolkit();
-		Dimension size = toolkit.getScreenSize();
-		setLocation(size.width/3 - getWidth()/3,
-		size.height/3 - getHeight()/3);
+		setTitle("White Gaussian Noise");
+		setBounds(1, 1, 350, 170);
+		Dimension size = getToolkit().getScreenSize();
+		setLocation(size.width/3 - getWidth()/3, size.height/3 - getHeight()/3);
 		this.setResizable(false);
 		setLayout(null);
-
-		JPanel pan1 = new JPanel();
-		pan1.setBounds(0, 0, 250, 70);
-		
 
 		this.addWindowListener(new WindowListener() {
 
@@ -85,33 +79,40 @@ public class ThresholdDialog extends JDialog implements ChangeListener {
 			}
 		});
 		
-		
-		JLabel umbralLabel = new JLabel("Threshold = ");
-		JSlider range = new JSlider(JSlider.HORIZONTAL, 0, 255, 0);
+		JSlider range = new JSlider(JSlider.HORIZONTAL, 0, 50, 0);
 		range.addChangeListener(this);
-		range.setMajorTickSpacing(10);
+		range.setMajorTickSpacing(5);
 		range.setMinorTickSpacing(1);
 		range.setPaintTicks(true);
 		range.setPaintLabels(true);
+		range.setSize(350, 120);
 
-		JButton okButton = new JButton("Ok");
+		
+		JPanel paramPanel = new JPanel();
+		paramPanel.setBorder(BorderFactory.createTitledBorder("Param."));
+		paramPanel.setBounds(0, 0, 350, 100);
+
+		JLabel meanLabel = new JLabel("Standard Deviation = ");
+
+		JButton okButton = new JButton("Go Back");
 		okButton.setSize(250, 40);
-		okButton.setBounds(0, 90, 250, 40);
-		okButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		okButton.setBounds(0, 100, 350, 40);
+		okButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
 				panel.setImage(panel.getWorkingImage());
 				dispose();
 			}
 		});
+		
+		paramPanel.add(meanLabel);
+		paramPanel.add(range);
 
-		pan1.add(umbralLabel);
-		pan1.add(range);
-
-		this.add(pan1);
+		this.add(paramPanel);
 		this.add(okButton);
-
-		}
-
+	};
+	
+	
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		// TODO Auto-generated method stub
@@ -120,10 +121,11 @@ public class ThresholdDialog extends JDialog implements ChangeListener {
 	        int value = (int)source.getValue();
 	        Image panelImage = panel.getImage();
 	        Image modify = (Image) panelImage.clone();
-			modify.threshold(value);
+			modify.whiteNoise(value);
 			panel.setWorkingImage(modify);
 			panel.repaint();
 //	    }
 	}
+	
 
 }

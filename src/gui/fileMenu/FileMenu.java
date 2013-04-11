@@ -26,15 +26,15 @@ import app.ImageSaver;
 
 public class FileMenu extends JMenu {
 	
-	public JMenuItem saveImage = new JMenuItem("Guardar imagen");
-	JMenuItem loadImage = new JMenuItem("Cargar imagen");
-	JMenuItem loadRaw = new JMenuItem("Cargar imagen Raw");
-	JMenuItem exit = new JMenuItem("Salir");
+	public JMenuItem saveImage = new JMenuItem("Save image");
+	JMenuItem loadImage = new JMenuItem("Load image");
+	JMenuItem loadRaw = new JMenuItem("Load image as raw");
+	JMenuItem exit = new JMenuItem("Exit");
 	
 	private static final long serialVersionUID = 1L;
 
 	public FileMenu(){
-		super("Archivo");
+		super("File");
 		
 		loadImage.addActionListener(new ActionListener() {
 			
@@ -51,9 +51,9 @@ public class FileMenu extends JMenu {
 					try{
 						image = ImageLoader.loadImage(arch);
 					} catch (ImageReadException ex){
-						new MessageFrame("No se pudo cargar la imagen");
+						new MessageFrame("Could not load image");
 					} catch (IOException ex){
-						new MessageFrame("No se pudo cargar la imagen");
+						new MessageFrame("Could not load image");
 					}
 					
 					if(image != null){
@@ -98,9 +98,9 @@ public class FileMenu extends JMenu {
 		    			try {
 		    			ImageSaver.saveImage(arch, image);
 		    			} catch (ImageWriteException ex){
-							new MessageFrame("No se pudo guardar la imagen");
+							new MessageFrame("Could not load image");
 						} catch (IOException ex){
-							new MessageFrame("No se pudo guardar la imagen");
+							new MessageFrame("Could not load image");
 						}
 		    		}
 					

@@ -188,6 +188,8 @@ public class SingleChannel implements Cloneable {
 	public void equalize() {
 		int[] histData = this.getColorOccurrences();
 		double[] newChannel = new double[this.channel.length];
+		double s_min = MAX_CHANNEL_COLOR;
+		double s_max = MIN_CHANNEL_COLOR;
 		
 		for( int i = 0 ; i < newChannel.length ; i++ ){
 				int grayLevel = truncatePixel((int)Math.floor(this.channel[i]));
@@ -197,8 +199,16 @@ public class SingleChannel implements Cloneable {
 					newValue += histData[k];
 				}
 				
-				newValue = newValue * (255.0/newChannel.length);
-				newChannel[i] = newValue;
+//				newValue = newValue * (255.0/newChannel.length);
+//				newChannel[i] = newValue;
+				newChannel[i] = newValue / this.channel.length;
+				s_min = Math.min(s_min, newChannel[i]);
+				s_max = Math.max(s_max, newChannel[i]);
+		}
+
+		for (int i = 0; i < newChannel.length; i++) {
+			double aux = 255*(newChannel[i] - s_min) / (s_max - s_min);
+			newChannel[i] = Math.ceil(aux);
 		}
 		
 		this.channel = newChannel;

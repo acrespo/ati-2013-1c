@@ -21,7 +21,7 @@ public class LowPassFilterDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	public LowPassFilterDialog(final Panel panel){
-		setTitle("Suavizado");
+		setTitle("Smoothing - Media Filter");
 		setBounds(1, 1, 250, 120);
 		Dimension size = getToolkit().getScreenSize();
 		setLocation(size.width/3 - getWidth()/3, size.height/3 - getHeight()/3);
@@ -29,18 +29,18 @@ public class LowPassFilterDialog extends JDialog {
 		setLayout(null);
 
 		JPanel pan1 = new JPanel();
-		pan1.setBorder(BorderFactory.createTitledBorder("Tamaño mascara"));
+		pan1.setBorder(BorderFactory.createTitledBorder("Mask size"));
 		pan1.setBounds(0, 0, 250, 50);
 
-		JLabel coordLabel1 = new JLabel("Ancho = ");
+		JLabel coordLabel1 = new JLabel("Width = ");
 		final JTextField coordX = new JTextField("3");
 		coordX.setColumns(3);
 
-		JLabel coordLabel2 = new JLabel(", Alto = ");
+		JLabel coordLabel2 = new JLabel(", Height = ");
 		final JTextField coordY = new JTextField("3");
 		coordY.setColumns(3);
 
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Ok");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 50, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -52,7 +52,7 @@ public class LowPassFilterDialog extends JDialog {
 					y = Integer.valueOf(coordY.getText());
 
 				} catch(NumberFormatException ex){
-					new MessageFrame("Los datos ingresados son invalidos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 				panel.getImage().applyMask(MaskFactory.buildLowPassMask(x, y));

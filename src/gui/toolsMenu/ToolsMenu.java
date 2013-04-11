@@ -1,41 +1,26 @@
 package gui.toolsMenu;
 
-import gui.MessageFrame;
 import gui.Panel;
 import gui.Window;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
-
-import model.Image;
-import model.Image.Channel;
-
-import org.apache.commons.math.complex.Complex;
-import org.apache.sanselan.ImageReadException;
-import org.apache.sanselan.ImageWriteException;
-
-import app.ImageCreator;
-import app.ImageLoader;
-import app.ImageSaver;
 
 public class ToolsMenu extends JMenu {
 
 	private static final long serialVersionUID = 1L;
 
 	public ToolsMenu(){
-		super("Herramientas");
+		super("Tools");
 		this.setEnabled(false);
 	
 	    
-	JMenuItem getPixel = new JMenuItem("Modificar Pixel");
+	JMenuItem getPixel = new JMenuItem("Modify Pixel");
     getPixel.addActionListener(new ActionListener() {
     	@Override
     	public void actionPerformed(ActionEvent e) {
@@ -45,7 +30,7 @@ public class ToolsMenu extends JMenu {
 		}
 	});
     
-    JMenuItem crop = new JMenuItem("Recortar Imagen");
+    JMenuItem crop = new JMenuItem("Cut Image");
     crop.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -66,7 +51,7 @@ public class ToolsMenu extends JMenu {
     
     JMenuItem multiplication = new MultiplyImagesItem(this);
     
-    JMenuItem multiplyByScalar = new JMenuItem("Multiplicar por escalar");
+    JMenuItem multiplyByScalar = new JMenuItem("Multiply by scalar");
     multiplyByScalar.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -77,7 +62,7 @@ public class ToolsMenu extends JMenu {
 		}); 
     
     
-    JMenuItem negative = new JMenuItem("Negativo");
+    JMenuItem negative = new JMenuItem("Negative");
     negative.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -87,7 +72,7 @@ public class ToolsMenu extends JMenu {
 			}
 		}); 
     
-    JMenuItem histogramItem = new JMenuItem("Histograma");
+    JMenuItem histogramItem = new JMenuItem("Grey Scale Histogram");
     histogramItem.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -97,7 +82,7 @@ public class ToolsMenu extends JMenu {
 		}
 	});
     
-    JMenuItem contrast = new JMenuItem("Contraste");
+    JMenuItem contrast = new JMenuItem("Increment Contrast");
     contrast.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -107,7 +92,7 @@ public class ToolsMenu extends JMenu {
 			}
 		}); 
     
-    JMenuItem threshold = new JMenuItem("Umbral");
+    JMenuItem threshold = new JMenuItem("Threshold");
     threshold.addActionListener(new ActionListener() {
     	@Override
     	public void actionPerformed(ActionEvent e) {
@@ -117,7 +102,7 @@ public class ToolsMenu extends JMenu {
 		}
 	}); 
     
-    JMenuItem equalize = new JMenuItem("Equalizar");
+    JMenuItem equalize = new JMenuItem("Equalize");
     equalize.addActionListener(new ActionListener() {
 		
 		@Override
@@ -128,7 +113,7 @@ public class ToolsMenu extends JMenu {
 		}
 	});
     
-    JMenuItem dynamicRangeCompression = new JMenuItem("Compresión de Rango Dinámico");
+    JMenuItem dynamicRangeCompression = new JMenuItem("Dynamic Range Compression");
     dynamicRangeCompression.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -153,8 +138,18 @@ public class ToolsMenu extends JMenu {
     this.add(threshold);
     this.add(equalize);
     this.add(dynamicRangeCompression);
-
-    this.add(new JSeparator());
+    
+    
+//    JMenuItem undo = new JMenuItem("Undo");
+//    undo.addActionListener(new ActionListener() {
+//		@Override
+//		public void actionPerformed(ActionEvent arg0) {
+//			Panel panel = (((Window) getTopLevelAncestor()).getPanel());
+//			panel.undo();
+//			panel.repaint();
+//		}
+//	});
+//    this.add(undo);
 
 	}
 

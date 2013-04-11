@@ -25,7 +25,7 @@ public class HistogramDialog extends JDialog {
 
 	public HistogramDialog(final Panel panel) {
 		
-		setTitle("Histograma de niveles de gris");
+		setTitle("Gray scale histogram");
 		setBounds(1, 1, 400, 250);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -41,7 +41,7 @@ public class HistogramDialog extends JDialog {
 		p1.setBounds(0, 0, 400, 200);
 		p1.add(new JLabel(new ImageIcon(histogram)));
 		
-		JButton backButton = new JButton("Volver");
+		JButton backButton = new JButton("Go Back");
 		backButton.setSize(400, 30);
 		backButton.setBounds(0, 200, 400, 30);
 		backButton.addActionListener(new ActionListener(){

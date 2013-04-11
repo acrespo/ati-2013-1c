@@ -20,7 +20,7 @@ public class GaussianNoiseDialog extends JDialog {
 
 	public GaussianNoiseDialog(final Panel panel){
 		
-		setTitle("Ruido Gaussiano");
+		setTitle("White Gaussian Noise");
 		setBounds(1, 1, 250, 120);
 		Dimension size = getToolkit().getScreenSize();
 		setLocation(size.width/3 - getWidth()/3, size.height/3 - getHeight()/3);
@@ -28,10 +28,10 @@ public class GaussianNoiseDialog extends JDialog {
 		setLayout(null);
 
 		JPanel paramPanel = new JPanel();
-		paramPanel.setBorder(BorderFactory.createTitledBorder("Parámetros"));
+		paramPanel.setBorder(BorderFactory.createTitledBorder("Param."));
 		paramPanel.setBounds(0, 0, 250, 50);
 
-		JLabel stdDevLabel = new JLabel("Desvío = ");
+		JLabel stdDevLabel = new JLabel("Standard Deviation = ");
 		final JTextField stdDevTextField = new JTextField("0.1");
 		stdDevTextField.setColumns(3);
 
@@ -45,7 +45,7 @@ public class GaussianNoiseDialog extends JDialog {
 				try {
 					stdDev = Double.valueOf(stdDevTextField.getText());
 				} catch (NumberFormatException ex){
-					new MessageFrame("Los valores ingresados son incorrectos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 	    		panel.getImage().whiteNoise(stdDev);

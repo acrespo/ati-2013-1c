@@ -25,7 +25,7 @@ public class RawImageDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	public RawImageDialog(final Panel panel, final File arch){
-		setTitle("Cargar Imagen Raw");
+		setTitle("Load Raw Image");
 		setBounds(1, 1, 250, 170);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -38,15 +38,15 @@ public class RawImageDialog extends JDialog {
 		pan1.setBounds(0, 0, 250, 50);
 		
 
-		JLabel anchoLabel = new JLabel("Ancho = ");
+		JLabel anchoLabel = new JLabel("Width = ");
 		final JTextField ancho = new JTextField("0");
 		ancho.setColumns(3);
 		
-		JLabel altoLabel = new JLabel("Alto = ");
+		JLabel altoLabel = new JLabel("Height = ");
 		final JTextField alto = new JTextField("0");
 		alto.setColumns(3);
 
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Ok");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 100, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -59,14 +59,14 @@ public class RawImageDialog extends JDialog {
 					X = Integer.valueOf(ancho.getText());
 					Y = Integer.valueOf(alto.getText());
 				} catch(NumberFormatException ex){
-					new MessageFrame("Los datos ingresados son invalidos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 				
 				try{
 					image = ImageLoader.loadRaw(arch, X, Y);
 				} catch (IOException ex){
-					new MessageFrame("No se pudo cargar la imagen");
+					new MessageFrame("Could not load image");
 				}
 				
 				if(image != null){

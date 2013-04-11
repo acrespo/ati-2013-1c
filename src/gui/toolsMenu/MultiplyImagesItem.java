@@ -8,7 +8,7 @@ public class MultiplyImagesItem extends ImageOperations {
 	private static final long serialVersionUID = 1L;
 
 	public MultiplyImagesItem(ToolsMenu t) {
-		super("Multiplicar Imagenes", t);
+		super("Multiply Images", t);
 	}
 
 	@Override

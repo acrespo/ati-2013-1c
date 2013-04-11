@@ -19,7 +19,7 @@ public class MultiplyByScalarDialog extends JDialog {
 	private static final long serialVersionUID = -5340277548569963815L;
 
 	public MultiplyByScalarDialog(final Panel panel){
-		setTitle("Multiplicación por escalar");
+		setTitle("Multiply by scalar");
 		setBounds(1, 1, 250, 170);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -32,11 +32,11 @@ public class MultiplyByScalarDialog extends JDialog {
 		pan1.setBounds(0, 0, 250, 50);
 		
 
-		JLabel umbralLabel = new JLabel("Escalar = ");
+		JLabel umbralLabel = new JLabel("Scalar = ");
 		final JTextField umbral = new JTextField("0");
 		umbral.setColumns(3);
 
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Ok");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 100, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -48,7 +48,7 @@ public class MultiplyByScalarDialog extends JDialog {
 				try{
 					scalar = Double.valueOf(umbral.getText());					
 				} catch(NumberFormatException ex){
-					new MessageFrame("Los datos ingresados son invalidos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 				

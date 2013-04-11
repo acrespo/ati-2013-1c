@@ -72,4 +72,6 @@ public interface Image {
 	public void applyMask(Mask mask);
 	
 	public void applyMedianMask(Point maskSize);
+
+	public Image clone();
 }

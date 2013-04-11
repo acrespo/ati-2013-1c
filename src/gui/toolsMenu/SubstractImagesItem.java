@@ -8,7 +8,7 @@ public class SubstractImagesItem extends ImageOperations {
 	private static final long serialVersionUID = 1L;
 
 	public SubstractImagesItem(ToolsMenu t) {
-		super("Restar Imagenes", t);
+		super("Substract Images", t);
 		// TODO Auto-generated constructor stub
 	}
 

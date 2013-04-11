@@ -27,7 +27,7 @@ public class DegradeDialog extends JDialog {
 
 	public DegradeDialog(final Panel panel, final boolean isColor){
 		
-		setTitle("Crear degrade");
+		setTitle("Create degrade");
 		setBounds(1, 1, 250, 200);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -37,18 +37,18 @@ public class DegradeDialog extends JDialog {
 		setLayout(null);
 
 		JPanel pan1 = new JPanel();
-		pan1.setBorder(BorderFactory.createTitledBorder("Tamaño"));
+		pan1.setBorder(BorderFactory.createTitledBorder("Size"));
 		pan1.setBounds(0, 0, 250, 50);
 		
 		JPanel pan2 = new JPanel();
 		pan2.setBorder(BorderFactory.createTitledBorder("Color"));
 		pan2.setBounds(0, 50, 250, 50);
 
-		JLabel altoLabel = new JLabel("Alto = ");
+		JLabel altoLabel = new JLabel("Height = ");
 		final JTextField alto = new JTextField("0");
 		alto.setColumns(3);
 
-		JLabel anchoLabel = new JLabel(", Ancho = ");
+		JLabel anchoLabel = new JLabel(", Width = ");
 		final JTextField ancho = new JTextField("0");
 		ancho.setColumns(3);
 
@@ -59,14 +59,12 @@ public class DegradeDialog extends JDialog {
 		JLabel colorLabel1 = new JLabel("From:");
 		final JTextField color1 = new JTextField(fieldText);
 		color1.setColumns(5);
-	//	color1.setAlignmentX(LEFT_ALIGNMENT);
 		
 		JLabel colorLabel2 = new JLabel("To:");
 		final JTextField color2 = new JTextField(fieldText);
 		color2.setColumns(5);
-	//	color2.setAlignmentX(LEFT_ALIGNMENT);
 		
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Ok");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 100, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -92,12 +90,12 @@ public class DegradeDialog extends JDialog {
 					}
 					
 				} catch(NumberFormatException ex){
-					new MessageFrame("Los datos ingresados son invalidos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 				
 				if( height <= 0 || width <= 0 ){
-					new MessageFrame("La imagen debe tener al menos tamaño 1x1");
+					new MessageFrame("Images must have at least a 1x1 size");
 					return;
 				}
 				
@@ -108,7 +106,7 @@ public class DegradeDialog extends JDialog {
 					panel.repaint();
 					dispose();
 				} else {
-					new MessageFrame("Valores ingresados incorrectos.");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 				

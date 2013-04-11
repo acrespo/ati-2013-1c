@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,31 +16,28 @@ import model.Image.Channel;
 public class Panel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private Image original = null;
 	private Image image = null;
+	private Image previous = null;
 	private List<Coordinate> mask = null;
 	
-	public void paintComponent( Graphics g ) {
-		super.paintComponent( g );
-		 
-		if(image != null){
-			for(int i = 0; i < image.getWidth(); i++)
-				for(int j = 0; j < image.getHeight(); j++){
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
+		if (image != null) {
+			for (int i = 0; i < image.getWidth(); i++)
+				for (int j = 0; j < image.getHeight(); j++) {
 					g.setColor(new Color(image.getRGBPixel(i, j)));
 					g.drawRect(i, j, 1, 1);
 				}
-			this.getTopLevelAncestor().setSize( image.getWidth()+7, image.getHeight()+53);
-		}
-		if(mask != null){
-			for(Point p: mask){
-				g.setColor(Color.GREEN);
-				g.drawRect(p.x, p.y, 1, 1);
-			}
-				
+			this.getTopLevelAncestor().setSize(image.getWidth() + 7,
+					image.getHeight() + 53);
 		}
 	}
 	
-	public void loadImage(Image imagen) {
-		this.image = imagen;
+	public void loadImage(Image image) {
+		this.image = image;
+		this.original = image;
 		((Window) getTopLevelAncestor()).enableTools();
 	}
 	
@@ -60,7 +56,7 @@ public class Panel extends JPanel {
 			y = Integer.valueOf(yText);
 			color = Integer.valueOf(colorText);
 		} catch (NumberFormatException ex){
-			new MessageFrame("Los valores ingresados son incorrectos");
+			new MessageFrame("Values entered are not valid");
 			return false;
 		}
 		
@@ -74,7 +70,7 @@ public class Panel extends JPanel {
 	}
 	
 	public Image getImage(){
-		return image;
+		return original;
 	}
 	
 	public List<Coordinate> getMask(){
@@ -90,5 +86,25 @@ public class Panel extends JPanel {
 		}
 		return mask;
 	}
+	
+	public Image getWorkingImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		previous = this.image.clone();
+		this.image = image;
+		this.original = image;
+	}
+
+	public void setWorkingImage(Image workingImage) {
+//		previous = this.original.clone();
+		this.image = workingImage;
+	}
+
+//	public void undo() {
+//		image = previous;
+//	}
+	
 	
 }

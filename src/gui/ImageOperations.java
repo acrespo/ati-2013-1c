@@ -42,14 +42,14 @@ public abstract class ImageOperations extends JMenuItem {
 					try{
 						image = ImageLoader.loadImage(arch);
 					} catch (ImageReadException ex){
-						new MessageFrame("No se pudo cargar la imagen");
+						new MessageFrame("Could not load image");
 					} catch (IOException ex){
-						new MessageFrame("No se pudo cargar la imagen");
+						new MessageFrame("Could not load image");
 					}
 					if(image.getHeight() != panel.getImage().getHeight()
 						|| image.getWidth() != panel.getImage().getWidth()) {
 	
-			    		new MessageFrame("Las imagenes deben ser del mismo tamaño");
+			    		new MessageFrame("Images must have the exact same size");
 						return;
 					}
 					try {

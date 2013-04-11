@@ -8,7 +8,7 @@ public class AddImagesItem extends ImageOperations {
 	private static final long serialVersionUID = 1L;
 
 	public AddImagesItem(ToolsMenu t) {
-		super("Sumar Imagen", t);
+		super("Sum image", t);
 	}
 
 	@Override

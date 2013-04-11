@@ -14,10 +14,10 @@ public class MenuTopBar extends JMenuBar {
 
 	public MenuTopBar(){
 		this.add(new FileMenu());
-		this.add(new ToolsMenu());
-		this.add(new FilterMenu());
-		this.add(new NoiseMenu());
 		this.add(new CreateMenu());
+		this.add(new ToolsMenu());
+		this.add(new NoiseMenu());
+		this.add(new FilterMenu());
 	}
 
 }

@@ -15,40 +15,40 @@ public class NoiseMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
 
 	public NoiseMenu() {
-		super("Ruido");
+		super("Noise");
 		this.setEnabled(false);
 
-		JMenuItem gaussianNoise = new JMenuItem("Gaussiano");
+		JMenuItem gaussianNoise = new JMenuItem("White Gaussian Noise");
 		gaussianNoise.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Panel panel = (((Window) getTopLevelAncestor()).getPanel());
-				JDialog askPixel = new GaussianNoiseDialog(panel);
+				JDialog askPixel = new GaussianNoiseSlider(panel);
 				askPixel.setVisible(true);
 			}
 		});
 
-		JMenuItem raileyghNoise = new JMenuItem("Rayleigh");
+		JMenuItem raileyghNoise = new JMenuItem("Rayleigh Noise");
 		raileyghNoise.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Panel panel = (((Window) getTopLevelAncestor()).getPanel());
-				JDialog askPixel = new RayleighNoiseDialog(panel);
+				JDialog askPixel = new RayleighNoiseSlider(panel);
 				askPixel.setVisible(true);
 			}
 		});
 
-		JMenuItem exponentialNoise = new JMenuItem("Exponencial");
+		JMenuItem exponentialNoise = new JMenuItem("Exponential Noise");
 		exponentialNoise.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Panel panel = (((Window) getTopLevelAncestor()).getPanel());
-				JDialog askPixel = new ExponentialNoiseDialog(panel);
+				JDialog askPixel = new ExponentialNoiseSlider(panel);
 				askPixel.setVisible(true);
 			}
 		});
 		
-		JMenuItem saltAndPepperNoise = new JMenuItem("Salt and pepper");
+		JMenuItem saltAndPepperNoise = new JMenuItem("Salt and Pepper Noise");
 		saltAndPepperNoise.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

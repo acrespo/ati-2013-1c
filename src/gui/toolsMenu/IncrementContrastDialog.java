@@ -20,7 +20,7 @@ public class IncrementContrastDialog extends JDialog {
 	
 	public IncrementContrastDialog(final Panel panel){
 
-		setTitle("Contraste");
+		setTitle("Increment Contrast");
 		setBounds(1, 1, 250, 170);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -30,11 +30,11 @@ public class IncrementContrastDialog extends JDialog {
 		setLayout(null);
 
 		JPanel pan1 = new JPanel();
-		pan1.setBorder(BorderFactory.createTitledBorder("Valores originales"));
+		pan1.setBorder(BorderFactory.createTitledBorder("Original values"));
 		pan1.setBounds(0, 0, 250, 50);
 		
 		JPanel pan2 = new JPanel();
-		pan2.setBorder(BorderFactory.createTitledBorder("Valores finales"));
+		pan2.setBorder(BorderFactory.createTitledBorder("Final values"));
 		pan2.setBounds(0, 50, 250, 50);
 
 		JLabel r1Label = new JLabel("r1 = ");
@@ -45,16 +45,16 @@ public class IncrementContrastDialog extends JDialog {
 		final JTextField r2 = new JTextField("0");
 		r2.setColumns(3);
 		
-		JLabel newR1Label = new JLabel("r1 = ");
+		JLabel newR1Label = new JLabel("R1 = ");
 		final JTextField newR1 = new JTextField("0");
 		newR1.setColumns(3);
 
-		JLabel newR2Label = new JLabel(", Y = ");
+		JLabel newR2Label = new JLabel(", R2 = ");
 		final JTextField newR2 = new JTextField("0");
 		newR2.setColumns(3);
 
 		
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Ok");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 100, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -73,7 +73,7 @@ public class IncrementContrastDialog extends JDialog {
 					y2 = Integer.valueOf(newR2.getText());
 					
 				} catch(NumberFormatException ex){
-					new MessageFrame("Los datos ingresados son invalidos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 				

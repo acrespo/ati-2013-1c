@@ -20,7 +20,7 @@ public class SaltAndPepperNoiseDialog extends JDialog {
 
 	public SaltAndPepperNoiseDialog(final Panel panel){
 		
-		setTitle("Ruido Salt and pepper");
+		setTitle("Salt and Pepper Noise");
 		setBounds(1, 1, 250, 120);
 		Dimension size = getToolkit().getScreenSize();
 		setLocation(size.width/3 - getWidth()/3, size.height/3 - getHeight()/3);
@@ -28,7 +28,7 @@ public class SaltAndPepperNoiseDialog extends JDialog {
 		setLayout(null);
 
 		JPanel paramPanel = new JPanel();
-		paramPanel.setBorder(BorderFactory.createTitledBorder("Parámetros"));
+		paramPanel.setBorder(BorderFactory.createTitledBorder("Params."));
 		paramPanel.setBounds(0, 0, 250, 50);
 
 		JLabel minLabel = new JLabel("Min = ");
@@ -39,7 +39,7 @@ public class SaltAndPepperNoiseDialog extends JDialog {
 		final JTextField maxTextField = new JTextField("0.9");
 		maxTextField.setColumns(3);
 
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Go Back");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 50, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -51,7 +51,7 @@ public class SaltAndPepperNoiseDialog extends JDialog {
 					min = Double.valueOf(minTextField.getText());
 					max = Double.valueOf(maxTextField.getText());
 				} catch (NumberFormatException ex){
-					new MessageFrame("Los valores ingresados son incorrectos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 	    		panel.getImage().saltAndPepperNoise(min, max);

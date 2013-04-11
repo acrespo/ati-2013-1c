@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import model.mask.Mask;
 import app.Utils;
 
-public class RGBImage implements Image, Cloneable{
+public class RGBImage implements Image, Cloneable {
 	
 	private ImageType type;
 	private ImageFormat format;
@@ -239,7 +239,7 @@ public class RGBImage implements Image, Cloneable{
 		SingleChannel noisyChannel = new SingleChannel(this.getWidth(), this.getHeight());
 		for(int x = 0; x < noisyChannel.getWidth(); x++) {
 			for(int y = 0; y < noisyChannel.getHeight() ; y++) {
-				double noiseLevel = RandomGenerator.getGaussian(0, SingleChannel.MAX_CHANNEL_COLOR * stdDev);
+				double noiseLevel = RandomGenerator.getGaussian(0, stdDev);
 				noisyChannel.setPixel(x, y, noiseLevel);
 			}
 		}
@@ -316,5 +316,15 @@ public class RGBImage implements Image, Cloneable{
 		int y = (int) Math.floor(getHeight()/2);
 		
 		return new Point(x, y);
+	}
+	
+	@Override
+	public Image clone() {
+
+		BufferedImage bi = new BufferedImage(this.getWidth(), this.getHeight(), 
+				Utils.toBufferedImageType(this.getType()));
+		Utils.populateEmptyBufferedImage(bi, this);
+
+		return new RGBImage(bi, format, type);
 	}
 }

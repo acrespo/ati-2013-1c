@@ -20,10 +20,10 @@ public class CreateMenu extends JMenu {
 	private static final long serialVersionUID = 1L;
 
 	public CreateMenu(){
-		super("Crear");
+		super("Create");
 		this.setEnabled(true);
 	
-	JMenuItem degradeBW = new JMenuItem("Degrade de grises");
+	JMenuItem degradeBW = new JMenuItem("Gray Degrade");
     degradeBW.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -38,7 +38,7 @@ public class CreateMenu extends JMenu {
 			}
 		});
     
-    JMenuItem degradeColor = new JMenuItem("Degrade de colores");
+    JMenuItem degradeColor = new JMenuItem("Color Degrade");
     degradeColor.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -53,7 +53,7 @@ public class CreateMenu extends JMenu {
 			}
 		});
     
-    JMenuItem binaryImage = new JMenuItem("Imagen binaria");
+    JMenuItem binaryImage = new JMenuItem("Binary Image");
     binaryImage.addActionListener(new ActionListener() {
 	    	@Override
 	    	public void actionPerformed(ActionEvent e) {
@@ -69,23 +69,23 @@ public class CreateMenu extends JMenu {
 		});
     
     
-    JMenuItem A = new JMenuItem("A");
-    A.addActionListener(new ActionListener() {
-	    	@Override
-	    	public void actionPerformed(ActionEvent e) {
-	    		
-	    		Panel panel = (((Window) getTopLevelAncestor()).getPanel());
-	    		
-	    		Image img = ImageCreator.A(256, 256);
-				
-				if(img != null){
-					panel.loadImage(img);
-					panel.repaint();
-				}
-	    		
-				
-			}
-		});
+//    JMenuItem A = new JMenuItem("A");
+//    A.addActionListener(new ActionListener() {
+//	    	@Override
+//	    	public void actionPerformed(ActionEvent e) {
+//	    		
+//	    		Panel panel = (((Window) getTopLevelAncestor()).getPanel());
+//	    		
+//	    		Image img = ImageCreator.A(256, 256);
+//				
+//				if(img != null){
+//					panel.loadImage(img);
+//					panel.repaint();
+//				}
+//	    		
+//				
+//			}
+//		});
     
     JMenuItem B = new JMenuItem("B");
     B.addActionListener(new ActionListener() {
@@ -255,17 +255,7 @@ public class CreateMenu extends JMenu {
     
     this.add(new JSeparator());
     
-    this.add(A);
-    this.add(B);
-    this.add(C);
-    this.add(D);
-    this.add(E);
-    this.add(F);
-    this.add(G);
-    this.add(H);
-    this.add(I);
     this.add(circle);
-    
 	}
 
 }

@@ -17,7 +17,7 @@ public class Window extends JFrame {
 	private MenuTopBar menuBar;
 	
 	public Window(){
-		setTitle("Photo View");
+		setTitle("PhotoShop Version -2.0");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1, 1, 250, 275);
 		Toolkit toolkit = getToolkit();

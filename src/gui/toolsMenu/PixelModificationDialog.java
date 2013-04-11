@@ -20,7 +20,7 @@ public class PixelModificationDialog extends JDialog {
 
 	public PixelModificationDialog(final Panel panel){
 		
-		setTitle("Modificar Pixel");
+		setTitle("Modify Pixel");
 		setBounds(1, 1, 250, 170);
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -30,7 +30,7 @@ public class PixelModificationDialog extends JDialog {
 		setLayout(null);
 
 		JPanel pan1 = new JPanel();
-		pan1.setBorder(BorderFactory.createTitledBorder("Coordinadas"));
+		pan1.setBorder(BorderFactory.createTitledBorder("Coordinates"));
 		pan1.setBounds(0, 0, 250, 50);
 		
 		JPanel pan2 = new JPanel();
@@ -45,12 +45,12 @@ public class PixelModificationDialog extends JDialog {
 		final JTextField coordY = new JTextField("0");
 		coordY.setColumns(3);
 
-		JLabel colorLabel = new JLabel("Valor= ");
+		JLabel colorLabel = new JLabel("Value= ");
 		final JTextField color = new JTextField("0");
 		color.setColumns(3);
 		color.setAlignmentX(LEFT_ALIGNMENT);
 		
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Ok");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 100, 250, 40);
 		okButton.addActionListener(new ActionListener(){

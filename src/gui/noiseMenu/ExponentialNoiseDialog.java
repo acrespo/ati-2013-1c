@@ -20,7 +20,7 @@ public class ExponentialNoiseDialog extends JDialog {
 
 	public ExponentialNoiseDialog(final Panel panel){
 		
-		setTitle("Ruido exponencial");
+		setTitle("Exponential Noise");
 		setBounds(1, 1, 250, 120);
 		Dimension size = getToolkit().getScreenSize();
 		setLocation(size.width/3 - getWidth()/3, size.height/3 - getHeight()/3);
@@ -28,14 +28,14 @@ public class ExponentialNoiseDialog extends JDialog {
 		setLayout(null);
 
 		JPanel paramPanel = new JPanel();
-		paramPanel.setBorder(BorderFactory.createTitledBorder("Parámetros"));
+		paramPanel.setBorder(BorderFactory.createTitledBorder("Param."));
 		paramPanel.setBounds(0, 0, 250, 50);
 
 		JLabel meanLabel = new JLabel("Media = ");
 		final JTextField meanTextField = new JTextField("1");
 		meanTextField.setColumns(3);
 
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Go Back");
 		okButton.setSize(250, 40);
 		okButton.setBounds(0, 50, 250, 40);
 		okButton.addActionListener(new ActionListener(){
@@ -45,7 +45,7 @@ public class ExponentialNoiseDialog extends JDialog {
 				try {
 					mean = Double.valueOf(meanTextField.getText());
 				} catch (NumberFormatException ex){
-					new MessageFrame("Los valores ingresados son incorrectos");
+					new MessageFrame("Values entered are not valid");
 					return;
 				}
 	    		panel.getImage().exponentialNoise(mean);

@@ -58,26 +58,26 @@ public class ImageCreator {
 		return module1;
 	}
 	
-	public static Image createBinaryImage(int height, int width) {
-		Image binaryImage = new RGBImage(height, width, ImageFormat.BMP, ImageType.GRAYSCALE);
-		
-		Color blackColor = Color.BLACK;
-		Color whiteColor = Color.WHITE;
-		
-		for(int y = 0; y < height; y++) {
-			for(int x = 0; x < width ; x++) {
-				boolean fitsInSquareByWidth = (x > width / 4 && x < 3 * width / 4);
-				boolean fitsInSquareByHeight = (y > height /  4 && y < 3 * height / 4);
-				boolean fitsInSquare = (fitsInSquareByWidth && fitsInSquareByHeight);
-				Color colorToApply = fitsInSquare? whiteColor : blackColor;
-				binaryImage.setRGBPixel(x, y, colorToApply.getRGB());
-			}					
-		}
-		
-		return binaryImage;
-	}
+//	public static Image createBinaryImage(int height, int width) {
+//		Image binaryImage = new RGBImage(height, width, ImageFormat.BMP, ImageType.GRAYSCALE);
+//		
+//		Color blackColor = Color.BLACK;
+//		Color whiteColor = Color.WHITE;
+//		
+//		for(int y = 0; y < height; y++) {
+//			for(int x = 0; x < width ; x++) {
+//				boolean fitsInSquareByWidth = (x > width / 4 && x < 3 * width / 4);
+//				boolean fitsInSquareByHeight = (y > height /  4 && y < 3 * height / 4);
+//				boolean fitsInSquare = (fitsInSquareByWidth && fitsInSquareByHeight);
+//				Color colorToApply = fitsInSquare? whiteColor : blackColor;
+//				binaryImage.setRGBPixel(x, y, colorToApply.getRGB());
+//			}					
+//		}
+//		
+//		return binaryImage;
+//	}
 	
-	public static Image A(int height, int width) {
+	public static Image createBinaryImage(int height, int width) {
 		Image binaryImage = new RGBImage(height, width, ImageFormat.BMP, ImageType.GRAYSCALE);
 		
 		Color blackColor = Color.BLACK;
